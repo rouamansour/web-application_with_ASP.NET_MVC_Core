@@ -25,6 +25,10 @@ namespace WebApplicationEmployé.Controllers
         {
             //afficher la listes des employés
             var employees = employeeRepository.GetAll();
+            ViewData["EmployeesCount"] = employees.Count();
+            ViewData["SalaryAverage"] = employeeRepository.SalaryAverage();
+            ViewData["MaxSalary"] = employeeRepository.MaxSalary();
+            ViewData["HREmployeesCount"] = employeeRepository.HrEmployeesCount();
             return View(employees);
         }
 
@@ -95,6 +99,11 @@ namespace WebApplicationEmployé.Controllers
             {
                 return View();
             }
+        }
+        public ActionResult Search(string term)
+        {
+            var result = employeeRepository.Search(term);
+            return View("Index", result);
         }
     }
 }

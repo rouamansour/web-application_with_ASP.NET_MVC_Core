@@ -67,5 +67,17 @@ namespace WebApplicationEmploye.Models.Repositories
         {
             return lemployees;
         }
+        public double SalaryAverage()
+        {
+            return lemployees.Average(x => x.Salary);
+        }
+        public double MaxSalary()
+        {
+            return lemployees.Max(x => x.Salary);
+        }
+        public int HrEmployeesCount()
+        {
+            return lemployees.Where(x => x.Departement == "HR").Count();
+        }
     }
 }

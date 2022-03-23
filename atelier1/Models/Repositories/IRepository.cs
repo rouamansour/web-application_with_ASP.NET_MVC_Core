@@ -9,6 +9,9 @@ namespace atelier1.Models.Repositories
     {
         IList<T> GetAll();
         T FindByID(int id);
+        double SalaryAverage();
+        double MaxSalary();
+        int HrEmployeesCount();
         void Add(T entity);
         void Update(int id, T entity);
         void Delete(int id);
